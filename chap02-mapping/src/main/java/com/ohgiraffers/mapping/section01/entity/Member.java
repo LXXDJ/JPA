@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 
 @Entity(name = "entityMember")
 @Table(name = "tbl_member")
-@Access(AccessType.FIELD)    // 클래스 레벨에 설정가능 모든 필드를 대상으로 적용하겠다는 의미 (FIELD : 기본값)
+@Access(AccessType.FIELD)    // 클래스 레벨에 설정가능, 모든 필드를 대상으로 적용하겠다는 의미 (FIELD : 기본값)
 public class Member {
     @Id
     @Column(name = "member_no")
