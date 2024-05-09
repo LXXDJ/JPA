@@ -14,7 +14,7 @@ public class Menu {
     // 영속성 전이(cascade = CascadeType.PERSIST) : 특정 엔터티 영속화 할 때, 연관된 엔터티도 함께 영속화 한다는 의미
     // @ManyToOne : 기본적으로 즉시로딩(fetch = FetchType.EAGER), 필요에 따라 지연 로딩(fetch = FetchType.LAZY)으로 변경 가능
 //    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "categoryCode")
     private Category category;
     private String orderableStatus;

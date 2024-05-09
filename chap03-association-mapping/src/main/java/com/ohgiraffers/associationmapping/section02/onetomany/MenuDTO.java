@@ -6,8 +6,7 @@ public class MenuDTO {
     private int menuPrice;
     private int categoryCode;
     private String orderableStatus;
-    public MenuDTO() {
-    }
+    public MenuDTO() {}
     public MenuDTO(
             int menuCode, String menuName, int menuPrice,
             int categoryCode, String orderableStatus

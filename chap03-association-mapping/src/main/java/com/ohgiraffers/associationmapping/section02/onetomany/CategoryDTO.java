@@ -7,8 +7,7 @@ public class CategoryDTO {
     private String categoryName;
     private Integer refCategoryCode;
     private List<MenuDTO> menuList;
-    public CategoryDTO() {
-    }
+    public CategoryDTO() {}
     public CategoryDTO(
             int categoryCode, String categoryName,
             Integer refCategoryCode, List<MenuDTO> menuList
