@@ -24,7 +24,9 @@ public class ParameterBindingRepository {
         // setParameter(위치값, 매개변수) => WHERE m.menuName = ?위치값
         String jpql = "SELECT m FROM Section02Menu m WHERE m.menuName = ?1";
         List<Menu> resultMenuList = entityManager.createQuery(jpql, Menu.class)
-                .setParameter(1, menuName).getResultList();
+                .setParameter(1, menuName)
+                // .setParameter(2, anotherParameter)
+                .getResultList();
         return resultMenuList;
     }
 }
