@@ -4,19 +4,12 @@ import jakarta.persistence.*;
 
 import java.util.List;
 
-//@SqlResultSetMappings(value =
-//    {@SqlResultSetMapping(
-//            name = "categoryCountAutoMapping",                        // 결과 매핑 이름
-//            entities = {@EntityResult(entityClass = Category.class)}, // @EntityResult를 사용해서 엔티티를 결과로 매핑
-//            columns = {@ColumnResult(name = "menu_count")}            // @ColumnResult를 사용해서 컬럼을 결과로 매핑
-//    )}
-//)
 @SqlResultSetMappings(value = {
     /* 자동 엔티티 매핑 : @Column으로 매핑 설정이 되어 있는 경우 사용 */
     @SqlResultSetMapping(
-        name = "categoryCountAutoMapping",
-        entities = {@EntityResult(entityClass = Category.class)},
-        columns = {@ColumnResult(name = "menu_count")}
+        name = "categoryCountAutoMapping",                              // 결과 매핑 이름
+        entities = {@EntityResult(entityClass = Category.class)},       // @EntityResult를 사용해서 엔티티를 결과로 매핑
+        columns = {@ColumnResult(name = "menu_count")}                  // @ColumnResult를 사용해서 컬럼을 결과로 매핑
     ),
     /* 수동 엔티티 매핑 : @Column으로 매핑 설정이 되어 있지 않은 경우 사용 */
     @SqlResultSetMapping(

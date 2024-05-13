@@ -38,8 +38,8 @@ public class NativeQueryRepository {
 
     public List<Object[]> nativeQueryByManualMapping() {
         String query = "SELECT a.*, COALESCE(v.menu_count, 0) menu_count FROM tbl_category a" +
-                " LEFT JOIN (SELECT COUNT(*) AS menu_count, b.category_code FROM tbl_menu b GROUP BY b.category_code) v" +
-                " ON (a.category_code = v.category_code) ORDER BY 1";
+                    " LEFT JOIN (SELECT COUNT(*) AS menu_count, b.category_code FROM tbl_menu b GROUP BY b.category_code) v" +
+                    " ON (a.category_code = v.category_code) ORDER BY 1";
         Query nativeQuery = entityManager.createNativeQuery(query, "categoryCountManualMapping");
         return nativeQuery.getResultList();
     }
