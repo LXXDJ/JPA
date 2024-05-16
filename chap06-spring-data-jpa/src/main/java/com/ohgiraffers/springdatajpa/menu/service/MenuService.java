@@ -13,6 +13,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -65,5 +66,24 @@ public class MenuService {
     public List<CategoryDTO> findAllCategory() {
         List<Category> categoryList = categoryRepository.findAllCategory();
         return categoryList.stream().map(category -> modelMapper.map(category, CategoryDTO.class)).toList();
+    }
+
+    // 6. save : 엔터티 저장
+    @Transactional
+    public void registMenu(MenuDTO menuDTO) {
+        menuRepository.save(modelMapper.map(menuDTO, Menu.class));
+    }
+
+    // 7. modify : 수정 (엔터티 객체 필드값 변경)
+    @Transactional
+    public void modifyMenu(MenuDTO menuDTO) {
+        Menu foundMenu = menuRepository.findById(menuDTO.getMenuCode()).orElseThrow(IllegalArgumentException::new);
+        foundMenu.modifyMenuName(menuDTO.getMenuName());
+    }
+
+    // 8. deleteById : 삭제
+    @Transactional
+    public void deleteMenu(Integer menuCode) {
+        menuRepository.deleteById(menuCode);
     }
 }

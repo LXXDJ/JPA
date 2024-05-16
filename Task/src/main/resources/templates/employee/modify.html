@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>modify employee</title>
+</head>
+<body>
+    <h1>직원 정보 수정</h1>
+
+    <form action="/employee/modify" method="post">
+        <label>수정할 직원 사원번호 : </label><input type="text" name="empId"/><br/>
+        <label>급여(백만~천만) : </label><input type="number" name="salary" min="1000000" max="10000000"/><br/>
+        <input type="submit" value="직원 등록"/>
+    </form>
+</body>
+</html>

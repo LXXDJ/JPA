@@ -19,4 +19,9 @@ public class Menu {
     private int menuPrice;
     private int categoryCode;
     private String orderableStatus;
+
+    // setter 메소드를 만들지 않고, 이런식으로 필요할 때 메소드를 만들어줌
+    public void modifyMenuName(String menuName) {
+        this.menuName = menuName;
+    }
 }

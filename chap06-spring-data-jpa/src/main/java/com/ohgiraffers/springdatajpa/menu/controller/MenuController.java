@@ -81,4 +81,28 @@ public class MenuController {
     public List<CategoryDTO> findCategoryList(){
         return menuService.findAllCategory();
     }
+
+    @PostMapping("/regist")
+    public String registNewMenu(@ModelAttribute MenuDTO menuDTO){
+        menuService.registMenu(menuDTO);
+        return "redirect:/menu/list";
+    }
+
+    @GetMapping("/modify")
+    public void modifyPage(){}
+
+    @PostMapping("/modify")
+    public String modifyMenu(@ModelAttribute MenuDTO menuDTO){
+        menuService.modifyMenu(menuDTO);
+        return "redirect:/menu/" + menuDTO.getMenuCode();
+    }
+
+    @GetMapping("/delete")
+    public void deletePage(){}
+
+    @PostMapping("/delete")
+    public String deleteMenu(@RequestParam Integer menuCode){
+        menuService.deleteMenu(menuCode);
+        return "redirect:/menu/list";
+    }
 }
